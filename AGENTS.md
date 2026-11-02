@@ -1,0 +1,5 @@
+- Use only nltk, spacy, scikit-learn, pandas, matplotlib, wordcloud, streamlit.
+- Write simple, commented, beginner-level Python.
+- Each Python file must say at the top which lab experiment (2 to 10) it is based on.
+- Never delete or change files in data/ or docs/.
+- After writing a file, run it on sample data and show me the output.

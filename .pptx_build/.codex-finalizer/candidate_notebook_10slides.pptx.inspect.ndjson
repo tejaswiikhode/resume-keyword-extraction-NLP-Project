@@ -1,0 +1,112 @@
+{"kind":"deck","id":"pr/26e30c","name":"Deck"}
+{"kind":"layout","layoutId":"2cb3eb17-cc1f-4b08-927d-c007d1a80097","name":"Master","type":"master"}
+{"kind":"layout","layoutId":"a8762813-ba62-438a-84cd-1a009ba8885a","name":"Title Slide","type":"title"}
+{"kind":"slide","id":"sl/zddg0z","slide":1,"title":"Resume Keyword","textShapes":5}
+{"kind":"textbox","id":"sh/947a9432","slide":1,"text":"Resume Keyword\nExtraction using NLP","textPreview":"Resume Keyword | Extraction using NLP","textChars":35,"textLines":2,"bbox":[82,122,1080,190]}
+{"kind":"textbox","id":"sh/m1grep4b","slide":1,"text":"Mini Project Presentation","textPreview":"Mini Project Presentation","textChars":25,"textLines":1,"bbox":[86,342,990,56]}
+{"kind":"textbox","id":"sh/72ps7ulw","slide":1,"text":"An explainable pipeline for resume keywords and job-text matching","textPreview":"An explainable pipeline for resume keywords and job-text matching","textChars":65,"textLines":1,"bbox":[88,418,1060,68]}
+{"kind":"textbox","id":"sh/kze9czm5","slide":1,"text":"NLP Lab  |  Dataset: 962 resumes across 25 categories","textPreview":"NLP Lab  |  Dataset: 962 resumes across 25 categories","textChars":53,"textLines":1,"bbox":[88,555,1060,42]}
+{"kind":"textbox","id":"sh/l07a5k3q","slide":1,"text":"01","textPreview":"01","textChars":2,"textLines":1,"bbox":[1160,665,48,28]}
+{"kind":"notes","id":"nt/zddg0z","slide":1,"text":"Source: project.ipynb and data/UpdatedResumeDataSet.csv. This presentation describes the implemented notebook and its recorded outputs."}
+{"kind":"slide","id":"sl/foojdy","slide":2,"title":"Problem and project objective","textShapes":10}
+{"kind":"textbox","id":"sh/98n694rm","slide":2,"text":"Problem and project objective","textPreview":"Problem and project objective","textChars":29,"textLines":1,"bbox":[72,42,1136,65]}
+{"kind":"textbox","id":"sh/m5cnyp8b","slide":2,"text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[1160,665,48,28]}
+{"kind":"textbox","id":"sh/n6lo7u9w","slide":2,"text":"•","textPreview":"•","textChars":1,"textLines":1,"bbox":[92,170,32,42]}
+{"kind":"textbox","id":"sh/wvep4zqd","slide":2,"text":"Manual resume screening takes time when many applications arrive.","textPreview":"Manual resume screening takes time when many applications arrive.","textChars":65,"textLines":1,"bbox":[132,168,1040,54]}
+{"kind":"textbox","id":"sh/xwn6d4ry","slide":2,"text":"•","textPreview":"•","textChars":1,"textLines":1,"bbox":[92,258,32,42]}
+{"kind":"textbox","id":"sh/a9w72p87","slide":2,"text":"Relevant skills and qualifications may be missed in free-form text.","textPreview":"Relevant skills and qualifications may be missed in free-form text.","textChars":67,"textLines":1,"bbox":[132,256,1040,54]}
+{"kind":"textbox","id":"sh/ba5obu9s","slide":2,"text":"•","textPreview":"•","textChars":1,"textLines":1,"bbox":[92,346,32,42]}
+{"kind":"textbox","id":"sh/cza5sfa9","slide":2,"text":"Extract and rank candidate keywords to make review more structured.","textPreview":"Extract and rank candidate keywords to make review more structured.","textChars":67,"textLines":1,"bbox":[132,344,1040,54]}
+{"kind":"textbox","id":"sh/d0361kre","slide":2,"text":"•","textPreview":"•","textChars":1,"textLines":1,"bbox":[92,434,32,42]}
+{"kind":"textbox","id":"sh/1cvqt83i","slide":2,"text":"Compare a resume with a job description, while leaving decisions to a person.","textPreview":"Compare a resume with a job description, while leaving decisions to a person.","textChars":77,"textLines":1,"bbox":[132,432,1040,54]}
+{"kind":"notes","id":"nt/foojdy","slide":2,"text":"Problem statement from experiment 1; project objective implemented in project.ipynb."}
+{"kind":"slide","id":"sl/516ycx","slide":3,"title":"Dataset and duplicate handling","textShapes":11}
+{"kind":"textbox","id":"sh/2tcfmd4b","slide":3,"text":"Dataset and duplicate handling","textPreview":"Dataset and duplicate handling","textChars":30,"textLines":1,"bbox":[72,42,1136,65]}
+{"kind":"textbox","id":"sh/pgnyhsnm","slide":3,"text":"The category chart uses all source rows; corpus analysis uses unique resume texts.","textPreview":"The category chart uses all source rows; corpus analysis uses unique resume texts.","textChars":82,"textLines":1,"bbox":[74,108,1120,38]}
+{"kind":"textbox","id":"sh/ofuxonm1","slide":3,"text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[1160,665,48,28]}
+{"kind":"textbox","id":"sh/fqlgbi5k","slide":3,"text":"962","textPreview":"962","textChars":3,"textLines":1,"bbox":[105,198,300,96]}
+{"kind":"textbox","id":"sh/epcfid4z","slide":3,"text":"source rows","textPreview":"source rows","textChars":11,"textLines":1,"bbox":[108,292,300,44]}
+{"kind":"textbox","id":"sh/1s3yd8nq","slide":3,"text":"25","textPreview":"25","textChars":2,"textLines":1,"bbox":[489,198,250,96]}
+{"kind":"textbox","id":"sh/gruxk3m5","slide":3,"text":"categories","textPreview":"categories","textChars":10,"textLines":1,"bbox":[493,292,250,44]}
+{"kind":"textbox","id":"sh/rm1g7y5o","slide":3,"text":"796","textPreview":"796","textChars":3,"textLines":1,"bbox":[825,198,300,96]}
+{"kind":"textbox","id":"sh/6lsfet43","slide":3,"text":"exact duplicate rows removed","textPreview":"exact duplicate rows removed","textChars":28,"textLines":1,"bbox":[829,292,365,44]}
+{"kind":"textbox","id":"sh/0bq18ru1","slide":3,"text":"166 unique resumes remain. Category and Resume columns have no missing values.","textPreview":"166 unique resumes remain. Category and Resume columns have no missing values.","textChars":78,"textLines":1,"bbox":[104,405,1080,86]}
+{"kind":"textbox","id":"sh/1czi1wbm","slide":3,"text":"Exact-text deduplication keeps the first copy for each resume.","textPreview":"Exact-text deduplication keeps the first copy for each resume.","textChars":62,"textLines":1,"bbox":[104,530,1060,55]}
+{"kind":"notes","id":"nt/516ycx","slide":3,"text":"Notebook cells 4–7. Source: data/UpdatedResumeDataSet.csv."}
+{"kind":"slide","id":"sl/h6rrg6","slide":4,"title":"Notebook workflow","textShapes":12}
+{"kind":"textbox","id":"sh/3md476ts","slide":4,"text":"Notebook workflow","textPreview":"Notebook workflow","textChars":17,"textLines":1,"bbox":[72,42,1136,65]}
+{"kind":"textbox","id":"sh/4nm50bud","slide":4,"text":"04","textPreview":"04","textChars":2,"textLines":1,"bbox":[1160,665,48,28]}
+{"kind":"textbox","id":"sh/povm9wby","slide":4,"text":"•","textPreview":"•","textChars":1,"textLines":1,"bbox":[90,154,32,42]}
+{"kind":"textbox","id":"sh/qp4n21cj","slide":4,"text":"Inspect, deduplicate, and clean text — experiments 1, 2, 10","textPreview":"Inspect, deduplicate, and clean text — experiments 1, 2, 10","textChars":59,"textLines":1,"bbox":[130,152,1060,54]}
+{"kind":"textbox","id":"sh/rqdob6t4","slide":4,"text":"•","textPreview":"•","textChars":1,"textLines":1,"bbox":[90,242,32,42]}
+{"kind":"textbox","id":"sh/cr654bup","slide":4,"text":"Remove stopwords and lemmatize — experiment 3","textPreview":"Remove stopwords and lemmatize — experiment 3","textChars":45,"textLines":1,"bbox":[130,240,1060,54]}
+{"kind":"textbox","id":"sh/dsf6dgba","slide":4,"text":"•","textPreview":"•","textChars":1,"textLines":1,"bbox":[90,330,32,42]}
+{"kind":"textbox","id":"sh/yton6lcv","slide":4,"text":"Tag parts of speech and chunk noun phrases — experiments 4, 6, 7","textPreview":"Tag parts of speech and chunk noun phrases — experiments 4, 6, 7","textChars":64,"textLines":1,"bbox":[130,328,1060,54]}
+{"kind":"textbox","id":"sh/zuxofqt0","slide":4,"text":"•","textPreview":"•","textChars":1,"textLines":1,"bbox":[90,418,32,42]}
+{"kind":"textbox","id":"sh/fit0jmdw","slide":4,"text":"Find named entities and listed skills — experiment 8","textPreview":"Find named entities and listed skills — experiment 8","textChars":52,"textLines":1,"bbox":[130,416,1060,54]}
+{"kind":"textbox","id":"sh/uhkjqhcb","slide":4,"text":"•","textPreview":"•","textChars":1,"textLines":1,"bbox":[90,506,32,42]}
+{"kind":"textbox","id":"sh/hkbilwv2","slide":4,"text":"Rank terms, compare job text, and explore charts — experiments 5, 9, 10","textPreview":"Rank terms, compare job text, and explore charts — experiments 5, 9, 10","textChars":71,"textLines":1,"bbox":[130,504,1060,54]}
+{"kind":"notes","id":"nt/h6rrg6","slide":4,"text":"Method sequence and experiment links documented in project.ipynb."}
+{"kind":"slide","id":"sl/b3rxq7","slide":5,"title":"Text normalization and phrase candidates","textShapes":10}
+{"kind":"textbox","id":"sh/98ny54fm","slide":5,"text":"Text normalization and phrase candidates","textPreview":"Text normalization and phrase candidates","textChars":40,"textLines":1,"bbox":[72,42,1136,65]}
+{"kind":"textbox","id":"sh/mlcfa9wv","slide":5,"text":"05","textPreview":"05","textChars":2,"textLines":1,"bbox":[1160,665,48,28]}
+{"kind":"textbox","id":"sh/7m5g3uxg","slide":5,"text":"•","textPreview":"•","textChars":1,"textLines":1,"bbox":[88,159,32,42]}
+{"kind":"textbox","id":"sh/kjux8zep","slide":5,"text":"Normalize whitespace and selected encoding artifacts; preserve technical forms such as C++, C#, and .NET.","textPreview":"Normalize whitespace and selected encoding artifacts; preserve technical forms such as C++, C#, and .NET.","textChars":105,"textLines":1,"bbox":[128,157,1065,54]}
+{"kind":"textbox","id":"sh/lk3y14fa","slide":5,"text":"•","textPreview":"•","textChars":1,"textLines":1,"bbox":[88,249,32,42]}
+{"kind":"textbox","id":"sh/yhcf6pwz","slide":5,"text":"Remove English stopwords, then lemmatize tokens for downstream analysis.","textPreview":"Remove English stopwords, then lemmatize tokens for downstream analysis.","textChars":72,"textLines":1,"bbox":[128,247,1065,54]}
+{"kind":"textbox","id":"sh/zilgzux4","slide":5,"text":"•","textPreview":"•","textChars":1,"textLines":1,"bbox":[88,339,32,42]}
+{"kind":"textbox","id":"sh/4fyhkje9","slide":5,"text":"Use NLTK POS tags to demonstrate morphology and simple adjective–noun phrase chunks.","textPreview":"Use NLTK POS tags to demonstrate morphology and simple adjective–noun phrase chunks.","textChars":84,"textLines":1,"bbox":[128,337,1065,54]}
+{"kind":"textbox","id":"sh/5g7ydovu","slide":5,"text":"•","textPreview":"•","textChars":1,"textLines":1,"bbox":[88,429,32,42]}
+{"kind":"textbox","id":"sh/9cba9o3i","slide":5,"text":"Phrase chunks are candidates; fragmented resume lists can produce awkward results.","textPreview":"Phrase chunks are candidates; fragmented resume lists can produce awkward results.","textChars":82,"textLines":1,"bbox":[128,427,1065,54]}
+{"kind":"notes","id":"nt/b3rxq7","slide":5,"text":"Experiments 2, 3, 4, 6, and 7."}
+{"kind":"slide","id":"sl/zmhwfi","slide":6,"title":"Entity and skill extraction","textShapes":10}
+{"kind":"textbox","id":"sh/hon2hob6","slide":6,"text":"Entity and skill extraction","textPreview":"Entity and skill extraction","textChars":27,"textLines":1,"bbox":[72,42,1136,65]}
+{"kind":"textbox","id":"sh/ulwjmtcf","slide":6,"text":"06","textPreview":"06","textChars":2,"textLines":1,"bbox":[1160,665,48,28]}
+{"kind":"textbox","id":"sh/fm50fyt0","slide":6,"text":"•","textPreview":"•","textChars":1,"textLines":1,"bbox":[88,159,32,42]}
+{"kind":"textbox","id":"sh/4be1s3uh","slide":6,"text":"spaCy identifies general entities such as people, organizations, places, and dates.","textPreview":"spaCy identifies general entities such as people, organizations, places, and dates.","textChars":83,"textLines":1,"bbox":[128,157,1065,54]}
+{"kind":"textbox","id":"sh/pcn2l8b2","slide":6,"text":"•","textPreview":"•","textChars":1,"textLines":1,"bbox":[88,249,32,42]}
+{"kind":"textbox","id":"sh/2pwjqtcr","slide":6,"text":"A transparent skill list checks terms such as Python, SQL, machine learning, AWS, and Tableau.","textPreview":"A transparent skill list checks terms such as Python, SQL, machine learning, AWS, and Tableau.","textChars":94,"textLines":1,"bbox":[128,247,1065,54]}
+{"kind":"textbox","id":"sh/3a5kjytc","slide":6,"text":"•","textPreview":"•","textChars":1,"textLines":1,"bbox":[88,339,32,42]}
+{"kind":"textbox","id":"sh/kfu1gjud","slide":6,"text":"In the sample resume, spaCy sometimes labels technical terms as PERSON, GPE, or ORG.","textPreview":"In the sample resume, spaCy sometimes labels technical terms as PERSON, GPE, or ORG.","textChars":84,"textLines":1,"bbox":[128,337,1065,54]}
+{"kind":"textbox","id":"sh/5g3i94by","slide":6,"text":"•","textPreview":"•","textChars":1,"textLines":1,"bbox":[88,429,32,42]}
+{"kind":"textbox","id":"sh/twned8b2","slide":6,"text":"NER results are supporting clues; the skill list is more direct for listed technologies.","textPreview":"NER results are supporting clues; the skill list is more direct for listed technologies.","textChars":88,"textLines":1,"bbox":[128,427,1065,54]}
+{"kind":"notes","id":"nt/zmhwfi","slide":6,"text":"Experiment 8. spaCy NER is supplemented by the notebook's editable common-skills list."}
+{"kind":"slide","id":"sl/d4hyth","slide":7,"title":"TF-IDF keywords and job matching","textShapes":10}
+{"kind":"textbox","id":"sh/vqp8n6d4","slide":7,"text":"TF-IDF keywords and job matching","textPreview":"TF-IDF keywords and job matching","textChars":32,"textLines":1,"bbox":[72,42,1136,65]}
+{"kind":"textbox","id":"sh/grypwbep","slide":7,"text":"07","textPreview":"07","textChars":2,"textLines":1,"bbox":[1160,665,48,28]}
+{"kind":"textbox","id":"sh/hsrqpgva","slide":7,"text":"•","textPreview":"•","textChars":1,"textLines":1,"bbox":[88,153,32,42]}
+{"kind":"textbox","id":"sh/it0rylwv","slide":7,"text":"TF-IDF ranks unigrams, bigrams, and trigrams across 166 unique resumes.","textPreview":"TF-IDF ranks unigrams, bigrams, and trigrams across 166 unique resumes.","textChars":71,"textLines":1,"bbox":[128,151,1050,54]}
+{"kind":"textbox","id":"sh/3u98rqdg","slide":7,"text":"•","textPreview":"•","textChars":1,"textLines":1,"bbox":[88,236,32,42]}
+{"kind":"textbox","id":"sh/4vi90be1","slide":7,"text":"Top terms are combined with noun-phrase candidates and skills found in the resume.","textPreview":"Top terms are combined with noun-phrase candidates and skills found in the resume.","textChars":82,"textLines":1,"bbox":[128,234,1050,54]}
+{"kind":"textbox","id":"sh/5wrqtgv6","slide":7,"text":"•","textPreview":"•","textChars":1,"textLines":1,"bbox":[88,319,32,42]}
+{"kind":"textbox","id":"sh/yxw7mhwr","slide":7,"text":"Cosine similarity compares the resume and job description; listed skills are split into matched and missing.","textPreview":"Cosine similarity compares the resume and job description; listed skills are split into matched and missing.","textChars":108,"textLines":1,"bbox":[128,317,1050,54]}
+{"kind":"textbox","id":"sh/zy58fmdw","slide":7,"text":"Recorded demo: 29.5% cosine similarity; 6 of 7 listed job skills matched.","textPreview":"Recorded demo: 29.5% cosine similarity; 6 of 7 listed job skills matched.","textChars":73,"textLines":1,"bbox":[100,438,1075,58]}
+{"kind":"textbox","id":"sh/vmtk7yt4","slide":7,"text":"The percentage depends on the wording and the two-document TF-IDF space. It is not a hiring score.","textPreview":"The percentage depends on the wording and the two-document TF-IDF space. It is not a hiring score.","textChars":98,"textLines":1,"bbox":[100,512,1075,70]}
+{"kind":"notes","id":"nt/d4hyth","slide":7,"text":"Experiments 5 and 9."}
+{"kind":"slide","id":"sl/kt9vnv","slide":8,"title":"Dataset results and text lengths","textShapes":3}
+{"kind":"textbox","id":"sh/qpsba5sz","slide":8,"text":"Dataset results and text lengths","textPreview":"Dataset results and text lengths","textChars":32,"textLines":1,"bbox":[72,42,1136,65]}
+{"kind":"textbox","id":"sh/dsju5kbq","slide":8,"text":"08","textPreview":"08","textChars":2,"textLines":1,"bbox":[1160,665,48,28]}
+{"kind":"textbox","id":"sh/ytsbepsb","slide":8,"text":"Most common: Java Developer (84), Testing (70), DevOps Engineer (55).","textPreview":"Most common: Java Developer (84), Testing (70), DevOps Engineer (55).","textChars":69,"textLines":1,"bbox":[97,592,1080,38]}
+{"kind":"image","id":"im/p4vepc76","slide":8,"name":"","alt":"Bar chart of the ten most frequent resume categories","bbox":[78,164,650,420]}
+{"kind":"image","id":"im/a54vyh8b","slide":8,"name":"","alt":"Histogram of token counts in unique resumes","bbox":[735,164,465,420]}
+{"kind":"notes","id":"nt/kt9vnv","slide":8,"text":"Experiment 10. The category bars count original rows; the histogram describes 166 unique resumes."}
+{"kind":"slide","id":"sl/pey9is","slide":9,"title":"Word cloud exploration","textShapes":2}
+{"kind":"textbox","id":"sh/14nqxgva","slide":9,"text":"Word cloud exploration","textPreview":"Word cloud exploration","textChars":22,"textLines":1,"bbox":[72,42,1136,65]}
+{"kind":"textbox","id":"sh/ehcr21cj","slide":9,"text":"09","textPreview":"09","textChars":2,"textLines":1,"bbox":[1160,665,48,28]}
+{"kind":"image","id":"im/qtcne9sb","slide":9,"name":"","alt":"Word cloud for all unique resumes","bbox":[74,152,570,250]}
+{"kind":"image","id":"im/ps3654r6","slide":9,"name":"","alt":"Word cloud for Java Developer resumes","bbox":[648,152,560,250]}
+{"kind":"image","id":"im/oru5czal","slide":9,"name":"","alt":"Word cloud for Testing resumes","bbox":[74,412,570,230]}
+{"kind":"image","id":"im/3qlo3u90","slide":9,"name":"","alt":"Word cloud for DevOps Engineer resumes","bbox":[648,412,560,230]}
+{"kind":"notes","id":"nt/pey9is","slide":9,"text":"Experiment 10. These images summarize word frequency after stopword removal."}
+{"kind":"slide","id":"sl/g9qrtd","slide":10,"title":"Conclusion and limitations","textShapes":10}
+{"kind":"textbox","id":"sh/rit4vy58","slide":10,"text":"Conclusion and limitations","textPreview":"Conclusion and limitations","textChars":26,"textLines":1,"bbox":[72,42,1136,65]}
+{"kind":"textbox","id":"sh/cj2543mt","slide":10,"text":"10","textPreview":"10","textChars":2,"textLines":1,"bbox":[1160,665,48,28]}
+{"kind":"textbox","id":"sh/dkbmx8ne","slide":10,"text":"•","textPreview":"•","textChars":1,"textLines":1,"bbox":[86,155,32,42]}
+{"kind":"textbox","id":"sh/elkn6d4z","slide":10,"text":"The notebook joins preprocessing, linguistic analysis, TF-IDF, similarity, and visual summaries.","textPreview":"The notebook joins preprocessing, linguistic analysis, TF-IDF, similarity, and visual summaries.","textChars":96,"textLines":1,"bbox":[126,153,1070,54]}
+{"kind":"textbox","id":"sh/zmtozi54","slide":10,"text":"•","textPreview":"•","textChars":1,"textLines":1,"bbox":[86,246,32,42]}
+{"kind":"textbox","id":"sh/0n258nmp","slide":10,"text":"The editable skill list is incomplete; POS chunks may be noisy; general spaCy NER can mislabel technologies.","textPreview":"The editable skill list is incomplete; POS chunks may be noisy; general spaCy NER can mislabel technologies.","textChars":108,"textLines":1,"bbox":[126,244,1070,54]}
+{"kind":"textbox","id":"sh/1ov618na","slide":10,"text":"•","textPreview":"•","textChars":1,"textLines":1,"bbox":[86,337,32,42]}
+{"kind":"textbox","id":"sh/m94nad4v","slide":10,"text":"Cosine similarity reflects shared wording, not experience quality or candidate suitability.","textPreview":"Cosine similarity reflects shared wording, not experience quality or candidate suitability.","textChars":91,"textLines":1,"bbox":[126,335,1070,54]}
+{"kind":"textbox","id":"sh/nado3i5g","slide":10,"text":"•","textPreview":"•","textChars":1,"textLines":1,"bbox":[86,428,32,42]}
+{"kind":"textbox","id":"sh/bmlcf6tk","slide":10,"text":"Use extracted terms to support human review, never as the sole hiring decision.","textPreview":"Use extracted terms to support human review, never as the sole hiring decision.","textChars":79,"textLines":1,"bbox":[126,426,1070,54]}
+{"kind":"notes","id":"nt/g9qrtd","slide":10,"text":"Summary based on the implemented notebook and sample outputs."}

@@ -1,0 +1,210 @@
+Theory
+Part-of-Speech (POS) Tagging is the process of assigning a grammatical category to each word in a sentence, such as noun, verb, adjective, adverb,
+pronoun, or preposition. It helps identify the syntactic role of words and improves the understanding of text.
+Different POS taggers include Rule-Based Taggers, Statistical Taggers, Transformation-Based Taggers, and the NLTK POS Tagger, which uses a
+pretrained statistical model. In this experiment, the Resume Dataset is preprocessed, tokenized, and each word is assigned its corresponding POS tag
+using NLTK.
+POS tagging is widely used in information extraction, text summarization, machine translation, sentiment analysis, and question answering.
+In [20]:
+In [21]:
+In [22]:
+In [23]:
+[nltk_data] Downloading package punkt to /home/computer/nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
+[nltk_data] Downloading package averaged_perceptron_tagger to
+[nltk_data]     /home/computer/nltk_data...
+[nltk_data]   Package averaged_perceptron_tagger is already up-to-
+[nltk_data]       date!
+Out[20]:True
+(962, 2)
+Out[21]:
+Category Resume
+0 Data ScienceSkills * Programming Languages: Python (pandas...
+1 Data ScienceEducation Details \r\nMay 2013 to May 2017 B.E...
+2 Data Science Areas of Interest Deep Learning, Control Syste...
+3 Data ScienceSkills â  ¢ R â  ¢ Python â  ¢ SAP HANA â  ¢ Table...
+4 Data ScienceEducation Details \r\n MCA YMCAUST, Faridab...
+Index(['Category', 'Resume'], dtype='object')
+Out[22]:
+Category Resume
+0 Data ScienceSkills * Programming Languages: Python (pandas...
+1 Data ScienceEducation Details \r\nMay 2013 to May 2017 B.E...
+2 Data Science Areas of Interest Deep Learning, Control Syste...
+3 Data ScienceSkills â  ¢ R â  ¢ Python â  ¢ SAP HANA â  ¢ Table...
+4 Data ScienceEducation Details \r\n MCA YMCAUST, Faridab...
+import pandas as pd
+import nltk
+import re
+from nltk.tokenize import word_tokenize
+from nltk import pos_tag
+nltk.download('punkt')
+nltk.download('averaged_perceptron_tagger')
+df = pd.read_csv("UpdatedResumeDataSet.csv")
+print(df.shape)
+df.head()
+print(df.columns)
+df[['Category','Resume']].head()
+sample_resume = df['Resume'].iloc[0]
+
+In [24]:
+In [25]:
+In [26]:
+In [27]:
+skills programming languages python pandas numpy scipy scikit learn matplotlib sql java javascript jquery machine 
+learning regression svm na ve bayes knn random forest decision trees boosting techniques cluster analysis word emb
+edding sentiment analysis natural language processing dimensionality reduction topic modelling lda nmf pca neural 
+nets database visualizations mysql sqlserver cassandra hbase elasticsearch d js dc js plotly kibana matplotlib ggp
+lot tableau others regular expression html css angular logstash kafka python flask git docker computer vision open 
+cv and understanding of deep learning education details data science assurance associate data science assurance as
+sociate ernst young llp skill details javascript exprience months jquery exprience months python exprience monthsc
+ompany details company ernst young llp description fraud investigations and dispute services assurance technology 
+assisted review tar technology assisted review assists in accelerating the review process and run analytics and ge
+nerate reports core member of a team helped in developing automated review platform tool from scratch for assistin
+g e discovery domain this tool implements predictive coding and topic modelling by automating reviews resulting in 
+reduced labor costs and time spent during the lawyers review understand the end to end flow of the solution doing 
+research and development for classification models predictive analysis and mining of the information present in te
+xt data worked on analyzing the outputs and precision monitoring for the entire tool tar assists in predictive cod
+ing topic modelling from the evidence by following ey standards developed the classifier models in order to identi
+fy red flags and fraud related issues tools technologies python scikit learn tfidf word vec doc vec cosine similar
+ity na ve bayes lda nmf for topic modelling vader and text blob for sentiment analysis matplot lib tableau dashboa
+rd for reporting multiple data science and analytic projects usa clients text analytics motor vehicle customer rev
+iew data received customer feedback survey data for past one year performed sentiment positive negative neutral an
+d time series analysis on customer comments across all categories created heat map of terms by survey category bas
+ed on frequency of words extracted positive and negative words across all the survey categories and plotted word c
+loud created customized tableau dashboards for effective reporting and visualizations chatbot developed a user fri
+endly chatbot for one of our products which handle simple questions about hours of operation reservation options a
+nd so on this chat bot serves entire product related questions giving overview of tool via qa platform and also gi
+ve recommendation responses so that user question to build chain of relevant answer this too has intelligence to b
+uild the pipeline of questions as per user requirement and asks the relevant recommended questions tools technolog
+ies python natural language processing nltk spacy topic modelling sentiment analysis word embedding scikit learn j
+avascript jquery sqlserver information governance organizations to make informed decisions about all of the inform
+ation they store the integrated information governance portfolio synthesizes intelligence across unstructured data 
+sources and facilitates action to ensure organizations are best positioned to counter information risk scan data f
+rom multiple sources of formats and parse different file formats extract meta data information push results for in
+dexing elastic search and created customized interactive dashboards using kibana preforming rot analysis on the da
+ta which give information of data which helps identify content that is either redundant outdated or trivial prefor
+ming full text search analysis on elastic search with predefined methods which can tag as pii personally identifia
+ble information social security numbers addresses names etc which frequently targeted during cyber attacks tools t
+echnologies python flask elastic search kibana fraud analytic platform fraud analytics and investigative platform 
+to review all red flag cases fap is a fraud analytics and investigative platform with inbuilt case manager and sui
+te of analytics for various erp systems it can be used by clients to interrogate their accounting systems for iden
+tifying the anomalies which can be indicators of fraud by running advanced analytics tools technologies html javas
+cript sqlserver jquery css bootstrap node js d js dc js
+['skills', 'programming', 'languages', 'python', 'pandas', 'numpy', 'scipy', 'scikit', 'learn', 'matplotlib', 'sq
+l', 'java', 'javascript', 'jquery', 'machine', 'learning', 'regression', 'svm', 'na', 've']
+[('skills', 'NNS'), ('programming', 'VBG'), ('languages', 'NNS'), ('python', 'VBP'), ('pandas', 'JJ'), ('numpy', 
+'JJ'), ('scipy', 'NN'), ('scikit', 'NN'), ('learn', 'VBP'), ('matplotlib', 'NN'), ('sql', 'NN'), ('java', 'NN'), 
+('javascript', 'NN'), ('jquery', 'NN'), ('machine', 'NN'), ('learning', 'VBG'), ('regression', 'NN'), ('svm', 'N
+N'), ('na', 'TO'), ('ve', 'VB')]
+skills  --->  NNS
+programming  --->  VBG
+languages  --->  NNS
+python  --->  VBP
+pandas  --->  JJ
+numpy  --->  JJ
+scipy  --->  NN
+scikit  --->  NN
+learn  --->  VBP
+matplotlib  --->  NN
+sql  --->  NN
+java  --->  NN
+javascript  --->  NN
+jquery  --->  NN
+machine  --->  NN
+learning  --->  VBG
+regression  --->  NN
+svm  --->  NN
+na  --->  TO
+ve  --->  VB
+sample_resume = sample_resume.lower()
+sample_resume = re.sub(r'http\S+','',sample_resume)
+sample_resume = re.sub(r'[^a-z\s]',' ',sample_resume)
+sample_resume = re.sub(r'\s+',' ',sample_resume)
+print(sample_resume)
+tokens = word_tokenize(sample_resume)
+print(tokens[:20])
+pos_tags = pos_tag(tokens)
+print(pos_tags[:20])
+for word,tag in pos_tags[:20]:
+    print(word," ---> ",tag)
+
+In [28]:
+In [29]:
+In [30]:
+In [31]:
+In [32]:
+In [33]:
+skills  --->  NNS
+programming  --->  VBG
+languages  --->  NNS
+python  --->  VBP
+pandas  --->  JJ
+numpy  --->  JJ
+scipy  --->  NN
+scikit  --->  NN
+learn  --->  VBP
+matplotlib  --->  NN
+sql  --->  NN
+java  --->  NN
+javascript  --->  NN
+jquery  --->  NN
+machine  --->  NN
+learning  --->  VBG
+regression  --->  NN
+svm  --->  NN
+na  --->  TO
+ve  --->  VB
+Counter({'NN': 228, 'NNS': 91, 'JJ': 75, 'IN': 66, 'CC': 26, 'DT': 26, 'VBG': 25, 'VB': 19, 'VBP': 17, 'VBN': 13, 
+'TO': 11, 'VBD': 11, 'RB': 10, 'VBZ': 10, 'WDT': 7, 'MD': 3, 'FW': 2, 'CD': 2, 'PRP$': 2, 'PRP': 2, 'JJS': 1, 'PD
+T': 1})
+Top POS Tags
+NN  : 228
+NNS  : 91
+JJ  : 75
+IN  : 66
+CC  : 26
+DT  : 26
+VBG  : 25
+VB  : 19
+VBP  : 17
+VBN  : 13
+TO  : 11
+VBD  : 11
+RB  : 10
+VBZ  : 10
+WDT  : 7
+MD  : 3
+FW  : 2
+CD  : 2
+PRP$  : 2
+PRP  : 2
+JJS  : 1
+PDT  : 1
+Out[32]:
+Category POS_Tags
+0 Data Science[(skills, NNS), (programming, VBG), (languages...
+1 Data Science[(education, NN), (details, NNS), (may, MD), (...
+2 Data Science [(areas, NNS), (of, IN), (interest, NN), (deep...
+3 Data Science [(skills, NNS), (r, VBP), (python, JJ), (sap, ...
+4 Data Science[(education, NN), (details, NNS), (mca, VBP), ...
+POS Tagged Dataset Saved Successfully.
+for word,tag in pos_tags[:20]:
+    print(word," ---> ",tag)
+from collections import Counter
+tag_frequency = Counter(tag for word,tag in pos_tags)
+print(tag_frequency)
+print("Top POS Tags\n")
+for tag,count in tag_frequency.most_common():
+    print(tag," :",count)
+def perform_pos(text):
+    text=text.lower()
+    text=re.sub(r'[^a-z\s]',' ',text)
+    tokens=word_tokenize(text)
+    return pos_tag(tokens)
+df["POS_Tags"]=df["Resume"].apply(perform_pos)
+df[['Category','POS_Tags']].head()
+df[['Category','Resume','POS_Tags']].to_csv(
+    "Resume_POS_Tagged.csv",
+    index=False
+)
+print("POS Tagged Dataset Saved Successfully.")

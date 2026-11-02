@@ -1,0 +1,91 @@
+Tejaswi Khode BEB221
+Experiment 10
+Aim
+Exploratory Data Analysis of a given text (Word Cloud).
+Theory
+Exploratory Data Analysis (EDA) is the process of analyzing and visualizing data to understand its main characteristics, patterns, and
+underlying structure before applying further NLP techniques. For text data, EDA typically involves:
+1. Basic statistics – Number of documents, word counts, character counts, average document length.
+2. Category/class distribution – Understanding how the text data is spread across different classes or labels.
+3. Word frequency analysis – Identifying the most frequently occurring words after removing stopwords.
+4. Word Cloud visualization – A visual representation of text data where the size of each word indicates its frequency; more frequent
+words appear larger and bolder.
+A Word Cloud is one of the most popular EDA tools for text data because it gives an instant, intuitive sense of which words dominate a
+document or corpus, without having to read through all the text manually.
+Application
+Quickly summarizing large text corpora (resumes, reviews, articles, tweets)
+Identifying dominant themes/keywords in a dataset
+Comparing vocabulary across different categories or classes
+Preliminary step before building NLP models (helps spot noisy or irrelevant frequent terms)
+Advantages
+Simple, fast, and visually intuitive
+Requires no complex modeling — good first step in any text analysis pipeline
+Helps identify important keywords and irrelevant noise (e.g. common but meaningless words)
+Limitations
+Does not capture context, grammar, or word relationships
+Can be misleading if stopwords/noise aren't properly removed
+Word size is based purely on frequency, not importance or sentiment
+[nltk_data] Downloading package punkt to /home/computer/nltk_data...[nltk_data]   Package punkt is already up-to-date![nltk_data] Downloading package stopwords to[nltk_data]     /home/computer/nltk_data...[nltk_data]   Package stopwords is already up-to-date!True
+Shape : (962, 2)
+In [2]:
+import pandas as pdimport nltkimport reimport matplotlib.pyplot as pltfrom nltk.corpus import stopwordsfrom nltk.tokenize import word_tokenizefrom wordcloud import WordCloudfrom collections import Counter
+nltk.download('punkt')nltk.download('stopwords')
+Out[2]:
+In [4]:
+df = pd.read_csv("UpdatedResumeDataSet.csv")print("Shape :", df.shape)df.head()
+
+Category Resume
+0 Data ScienceSkills * Programming Languages: Python (pandas...
+1 Data ScienceEducation Details \r\nMay 2013 to May 2017 B.E...
+2 Data ScienceAreas of Interest Deep Learning, Control Syste...
+3 Data ScienceSkills â  ¢ R â  ¢ Python â  ¢ SAP HANA â  ¢ Table...
+4 Data ScienceEducation Details \r\n MCA YMCAUST, Faridab...
+Total Resumes: 962Total Categories: 25
+Category Distribution:
+Java Developer               84Testing                      70DevOps Engineer              55Python Developer             48Web Designing                45HR                           44Hadoop                       42Blockchain                   40ETL Developer                40Operations Manager           40Data Science                 40Sales                        40Mechanical Engineer          40Arts                         36Database                     33Electrical Engineering       30Health and fitness           30PMO                          30Business Analyst             28DotNet Developer             28Automation Testing           26Network Security Engineer    25SAP Developer                24Civil Engineer               24Advocate                     20Name: Category, dtype: int64
+Out[4]:
+In [5]:
+print("Total Resumes:", df.shape[0])print("Total Categories:", df['Category'].nunique())print("\nCategory Distribution:\n")print(df['Category'].value_counts())
+In [6]:
+plt.figure(figsize=(12,6))df['Category'].value_counts().plot(kind='bar', color='skyblue')plt.title("Number of Resumes per Category")plt.xlabel("Category")plt.ylabel("Count")plt.xticks(rotation=90)plt.tight_layout()plt.show()
+In [7]:
+df['word_count'] = df['Resume'].apply(lambda x: len(str(x).split()))df['char_count'] = df['Resume'].apply(lambda x: len(str(x)))
+print("Average word count per resume:", df['word_count'].mean())print("Average character count per resume:", df['char_count'].mean())
+plt.figure(figsize=(8,5))
+
+Average word count per resume: 450.49792099792097Average character count per resume: 3160.364864864865
+Resume clean_resume
+0 Skills * Programming Languages: Python (pandas...skills programming languages python pandas num...
+1 Education Details \r\nMay 2013 to May 2017 B.E...education details may may uit rgpv data scient...
+2 Areas of Interest Deep Learning, Control Syste...areas interest deep learning control system de...
+3 Skills â  ¢ R â  ¢ Python â  ¢ SAP HANA â  ¢ Table...skills python sap hana tableau sap hana sql sa...
+4 Education Details \r\n MCA YMCAUST, Faridab...education details mca ymcaust faridabad haryan...
+Top 20 most frequent words in the entire dataset:
+exprience: 3829company: 3578project: 3498months: 3288description: 3122details: 3096data: 2156management: 1999team: 1950maharashtra: 1449system: 1425testing: 1349year: 1344database: 1280development: 1203business: 1196ltd: 1177test: 1174less: 1145using: 1124
+plt.hist(df['word_count'], bins=30, color='salmon', edgecolor='black')plt.title("Distribution of Word Count per Resume")plt.xlabel("Word Count")plt.ylabel("Frequency")plt.show()
+In [8]:
+stop_words = set(stopwords.words('english'))
+def preprocess(text):    text = text.lower()    text = re.sub(r'[^a-z\s]', ' ', text)    text = re.sub(r'\s+', ' ', text)    tokens = word_tokenize(text)    tokens = [word for word in tokens if word not in stop_words and len(word) > 2]    return " ".join(tokens)
+df['clean_resume'] = df['Resume'].apply(preprocess)df[['Resume', 'clean_resume']].head()
+Out[8]:
+In [9]:
+all_words = " ".join(df['clean_resume']).split()word_freq = Counter(all_words)
+print("Top 20 most frequent words in the entire dataset:\n")for word, freq in word_freq.most_common(20):    print(f"{word}: {freq}")
+In [10]:
+all_text = " ".join(df['clean_resume'])
+wordcloud = WordCloud(    width=1000,    height=600,    background_color='white',    max_words=150,    colormap='viridis'
+
+).generate(all_text)
+plt.figure(figsize=(12,7))plt.imshow(wordcloud, interpolation='bilinear')plt.axis('off')plt.title("Word Cloud - All Resumes", fontsize=16)plt.show()
+In [11]:
+category_name = "Data Science"
+category_text = " ".join(df[df['Category'] == category_name]['clean_resume'])
+wordcloud_cat = WordCloud(    width=1000,    height=600,    background_color='white',    max_words=150,    colormap='plasma').generate(category_text)
+plt.figure(figsize=(12,7))plt.imshow(wordcloud_cat, interpolation='bilinear')plt.axis('off')plt.title(f"Word Cloud - {category_name} Resumes", fontsize=16)plt.show()
+In [12]:
+categories_to_compare = ["Data Science", "Java Developer", "HR", "Testing"]
+fig, axes = plt.subplots(2, 2, figsize=(16, 10))axes = axes.flatten()
+for i, cat in enumerate(categories_to_compare):    text = " ".join(df[df['Category'] == cat]['clean_resume'])    wc = WordCloud(width=600, height=400, background_color='white', max_words=100).generate(text)    axes[i].imshow(wc, interpolation='bilinear')    axes[i].set_title(cat, fontsize=14)    axes[i].axis('off')
+
+Conclusion
+plt.tight_layout()plt.show()

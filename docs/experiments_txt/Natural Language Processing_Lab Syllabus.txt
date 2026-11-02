@@ -1,0 +1,97 @@
+ 
+ 
+ 
+Lab Code Lab Name Credit 
+CSDL7013         Natural Language processing Lab 1 
+ 
+ 
+Prerequisite: Java/Python 
+Lab Objectives: The course aims 
+1 To understand the key concepts of NLP. 
+2 To learn various phases of NLP. 
+3 To design and implement various language models and POS tagging techniques. 
+4 To understand various NLP Algorithms 
+5 To learn NLP applications such as Information Extraction,  Sentiment Analysis, Question 
+answering, Machine translation etc.  
+6 To design and implement applications based on natural language processing 
+ 
+Lab Outcomes:Learners will be able 
+1 Apply various text processing techniques. 
+2 Design language model for word level analysis. 
+3 Model linguistic phenomena with formal grammar. 
+4 Design, implement and analyze NLP algorithms. 
+5 To apply NLP techniques to design real world NLP applications such as machine translation, 
+sentiment analysis, text summarization, information extraction, Question Answering system 
+etc.  
+6 Implement proper experimental methodology for training and evaluating empirical NLP 
+systems. 
+ 
+ 
+Suggested List of Experiments 
+(Select a case study and perform the experiments 1 to 8.). 
+Star (*) marked experiments are compulsory. 
+Sr. No. Name of the Experiment 
+1 Study various applications of NLP and Formulate the Problem Statement for Mini 
+Project based on chosen real world NLP applications:  
+[Machine Translation, Text Categorization, Text summarization, chat Bot, Plagarism, 
+Spelling & Grammar checkers, Sentiment / opinion analysis, Question answering, 
+Personal Assistant, Tutoring Systems, etc.] 
+2 Apply various text preprocessing techniques for any given text : Tokenization and 
+Filtration & Script Validation. 
+3 Apply various other text preprocessing techniques for any given text : Stop Word 
+Removal, Lemmatization / Stemming. 
+4 Perform morphological analysis and word generation for any given text.  
+5 Implement N-Gram model for the given text input. 
+6 Study the different POS taggers and Perform POS tagging on the given text. 
+7 Perform Chunking for the given text input. 
+8 Implement Named Entity Recognizer for the given text input. 
+
+ 
+9 Implement Text Similarity Recognizer for the chosen text documents.  
+10 Exploratory data analysis of a given text (Word Cloud) 
+11 Mini Project Report: For any one chosen real world NLP application. 
+13 Implementation and Presentation of Mini Project 
+ 
+ 
+Term Work: 
+1 Study various applications of NLP and Formulate the Problem Statement for Mini Project based 
+on chosen real world NLP applications:  
+[Machine Translation, Text Categorization, Text summarization, chat Bot, Plagarism, Spelling 
+& Grammar checkers, Sentiment / opinion analysis, Question answering, Personal Assistant, 
+Tutoring Systems, etc.] 
+2 Apply various text preprocessing techniques for any given text: Tokenization and Filtration & 
+Script Validation. 
+3 Apply various other text preprocessing techniques for any given text: Stop Word Removal, 
+Lemmatization / Stemming. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
